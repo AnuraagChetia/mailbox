@@ -3,6 +3,7 @@ import { Button, Form, FormGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import Input from "../UI/Input";
 import { authActions } from "../../Store/auth-reducer";
+import { useNavigate } from "react-router";
 const Login = (props) => {
   const dispatch = useDispatch();
   const [isLogin, setisLogin] = useState(false);
@@ -10,7 +11,7 @@ const Login = (props) => {
   const passwordInputRef = useRef();
   const confirmPasswordInputRef = useRef();
   const [forgetMode, setForgetMode] = useState(false);
-
+  const navigate = useNavigate();
   const switchModeHandler = () => {
     setisLogin((prevState) => !prevState);
     setForgetMode(false);
@@ -78,6 +79,7 @@ const Login = (props) => {
       if (res.ok) {
         data = await res.json();
         localStorage.setItem("email", enteredEmail);
+        navigate("/home");
       } else {
         let errorMessage = "Authentication failed!";
         throw new Error(errorMessage);
