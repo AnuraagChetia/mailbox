@@ -4,17 +4,26 @@ import Header from "./Components/Header/Header";
 import { Route, Routes } from "react-router";
 import Home from "./Pages/Home";
 import { BrowserRouter } from "react-router-dom";
+import InboxPage from "./Pages/InboxPage";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header></Header>
+        <Header />
         <Routes>
-          <Route path="/" element={<LoginPage></LoginPage>}></Route>
+          <Route path="/" element={<LoginPage />}></Route>
         </Routes>
         <Routes>
-          <Route path="/home" element={<Home></Home>}></Route>
+          <Route
+            path="/home"
+            element={
+              <>
+                <Home />
+                <InboxPage />
+              </>
+            }
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>
