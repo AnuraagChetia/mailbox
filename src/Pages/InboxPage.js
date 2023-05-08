@@ -9,7 +9,6 @@ const InboxPage = (props) => {
   useEffect(() => {
     dispatch(fetchInboxMail());
   }, []);
-  console.log(inbox);
-  return <Inbox></Inbox>;
+  return <Inbox inbox={inbox}></Inbox>;
 };
 export default InboxPage;

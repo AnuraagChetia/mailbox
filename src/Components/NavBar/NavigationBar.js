@@ -1,15 +1,17 @@
 import { Container, Nav, Navbar, NavbarBrand } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const NavigationBar = (props) => {
   return (
-    <Navbar bg={"primary"} variant="dark">
+    <Navbar bg={"dark"} variant="dark">
       <Container fluid>
-        <NavbarBrand>Expense Tracker</NavbarBrand>
+        <NavbarBrand>Mailbox Client</NavbarBrand>
         <Nav>
-          <Nav.Link to="/home">Home</Nav.Link>
-          <Nav.Link>Product</Nav.Link>
-          <Nav.Link>About Us</Nav.Link>
-          <Nav.Link href="/">Logout</Nav.Link>
+          <NavLink className="m-2" to='/home'>Compose</NavLink>
+          <NavLink className="m-2" to="/inbox">
+            Inbox
+          </NavLink>
+          <NavLink className="m-2">Sent</NavLink>
         </Nav>
       </Container>
     </Navbar>

@@ -1,3 +1,5 @@
+import { mailActions } from "./mail-reducer";
+
 export const fetchInboxMail = () => {
   return async (dispatch) => {
     const fetchData = async () => {
@@ -20,11 +22,12 @@ export const fetchInboxMail = () => {
       return data;
     };
     const data = await fetchData();
-    let mails = [];
-    data.forEach((element) => {
-      console.log(element);
+    let mails = Object.entries(data); //
+    let inbox = mails.map((mail) => {
+      return mail[1];
     });
-    // console.log(data);
+    dispatch(mailActions.replaceMails({ inbox: inbox }));
+    console.log(inbox);
   };
 };
 

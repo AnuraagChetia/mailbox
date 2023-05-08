@@ -5,28 +5,21 @@ import { Route, Routes } from "react-router";
 import Home from "./Pages/Home";
 import { BrowserRouter } from "react-router-dom";
 import InboxPage from "./Pages/InboxPage";
+import Sidebar from "../src/Components/UI/SideBar";
 
 function App() {
   return (
-    <>
+    <div>
       <BrowserRouter>
         <Header />
+
         <Routes>
           <Route path="/" element={<LoginPage />}></Route>
-        </Routes>
-        <Routes>
-          <Route
-            path="/home"
-            element={
-              <>
-                <Home />
-                <InboxPage />
-              </>
-            }
-          ></Route>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/inbox" element={<InboxPage />}></Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
